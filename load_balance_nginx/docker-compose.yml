@@ -1,0 +1,20 @@
+version: "2"
+ 
+services:
+  app:
+    build:
+      context:  ./was
+      dockerfile: Dockerfile
+    expose:
+      - "9443"
+    environment:
+      - ENABLE_BASIC_LOGGING=true
+
+  proxy:
+    build:
+      context:  ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - app
