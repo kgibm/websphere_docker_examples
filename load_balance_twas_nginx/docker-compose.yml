@@ -1,9 +1,9 @@
-version: "2"
+version: "3"
  
 services:
   app:
     build:
-      context:  ./was
+      context: was
       dockerfile: Dockerfile
     expose:
       - "9443"
@@ -12,9 +12,9 @@ services:
 
   proxy:
     build:
-      context:  ./nginx
+      context: nginx
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    links:
+    depends_on:
       - app
