@@ -11,3 +11,7 @@ Access: http://localhost/
 Stop:
 
     docker-compose down
+
+References:
+
+* https://developer.ibm.com/wasdev/docs/nginx-websphere-application-server/
